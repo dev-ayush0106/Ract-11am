@@ -1,6 +1,11 @@
 import { useState } from "react";
 import './State1.css';
 function State1(){
+    let s={
+        width:"300px",
+        height:"300px",
+        border:"2px solid black"
+    }
 
     let [data,setData]=useState(0)
     let [value,setValue]=useState(false);
@@ -42,6 +47,12 @@ function State1(){
             <br /> <br />
 
             <div className={(value)?"box1":"box2"}>
+
+            </div>
+
+            <br /> <br />
+
+            <div style={s}>
 
             </div>
 
