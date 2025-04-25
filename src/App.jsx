@@ -1,6 +1,7 @@
 import { Hello, Hello1, Hello2 } from "./App1";
 import Card from "./Card";
 import State from "./Class 2/State";
+import State1 from "./Class 3/State1";
 
 function App(){
   const s={
@@ -34,7 +35,9 @@ function App(){
       <Card/> */}
       {/* <h1 style={{backgroundColor:"blue"}}>Hii</h1> */}
 
-      <State/>
+      {/* <State/> */}
+
+      <State1/>
     </>
   )
 }
