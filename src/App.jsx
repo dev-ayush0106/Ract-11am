@@ -2,6 +2,8 @@ import { Hello, Hello1, Hello2 } from "./App1";
 import Card from "./Card";
 import State from "./Class 2/State";
 import State1 from "./Class 3/State1";
+import Form from "./Class 4/Form";
+import Wrapper from "./Class 4/Wrapper";
 
 function App(){
   const s={
@@ -37,7 +39,11 @@ function App(){
 
       {/* <State/> */}
 
-      <State1/>
+      {/* <State1/> */}
+
+      {/* <Wrapper/> */}
+
+      <Form/>
     </>
   )
 }
