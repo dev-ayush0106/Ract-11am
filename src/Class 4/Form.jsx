@@ -11,9 +11,8 @@ function Form() {
     } = useForm()
 
     async function dataHandle(data) {
-        await setTimeout(()=>{
-            return new Promise(()=>{console.log(data)})
-        },2000)
+    await new Promise((res)=>{setTimeout(res,2000)})
+       console.log(data)
     }
     return (
         <>
@@ -45,7 +44,7 @@ function Form() {
                     <label>Phone Number:</label>
                     <input {...register("contact", { required: true })} />
                 </div>
-                <input type="submit" disabled={isSubmitting}/>
+                <input type="submit" disabled={isSubmitting} value={isSubmitting?"Processing":"Submit"}/>
             </form>
         </>
     )

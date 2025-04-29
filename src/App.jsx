@@ -4,6 +4,7 @@ import State from "./Class 2/State";
 import State1 from "./Class 3/State1";
 import Form from "./Class 4/Form";
 import Wrapper from "./Class 4/Wrapper";
+import Form1 from "./Class 5/Form1";
 
 function App(){
   const s={
@@ -43,7 +44,9 @@ function App(){
 
       {/* <Wrapper/> */}
 
-      <Form/>
+      {/* <Form/> */}
+
+      <Form1/>
     </>
   )
 }
