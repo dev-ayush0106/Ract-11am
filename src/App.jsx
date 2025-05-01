@@ -1,3 +1,4 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Hello, Hello1, Hello2 } from "./App1";
 import Card from "./Card";
 import State from "./Class 2/State";
@@ -5,6 +6,12 @@ import State1 from "./Class 3/State1";
 import Form from "./Class 4/Form";
 import Wrapper from "./Class 4/Wrapper";
 import Form1 from "./Class 5/Form1";
+import Routing from "./Class 6/Routing";
+import Courses from "./Class 6/Courses";
+import Contactus from "./Class 6/Contactus";
+import UIUX from "./Class 6/UIUX";
+import Frontend from "./Class 6/Frontend";
+import Backend from "./Class 6/Backend";
 
 function App(){
   const s={
@@ -18,6 +25,39 @@ function App(){
     b:"Fantastic",
     c:"Hitech"
   }
+
+  let router=createBrowserRouter(
+    [
+      {
+        path:'/',
+        element: <Routing/>
+      },
+      {
+        path:"/courses",
+        element:<Courses/>,
+        children:[
+          {
+            path:"uiux",
+            element:<UIUX/>
+          },
+          {
+            path:"frontend",
+            element:<Frontend/>
+          },
+          {
+            path:"backend",
+            element:<Backend/>
+          }
+        ]
+      },
+      {
+        path:"/contactus",
+        element:<Contactus/>
+      }
+    ]
+  )
+
+
   return(
     <>
       {/* <Hello/>
@@ -46,7 +86,9 @@ function App(){
 
       {/* <Form/> */}
 
-      <Form1/>
+      {/* <Form1/> */}
+      
+      <RouterProvider router={router} />
     </>
   )
 }
