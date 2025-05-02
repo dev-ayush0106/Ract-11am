@@ -12,6 +12,10 @@ import Contactus from "./Class 6/Contactus";
 import UIUX from "./Class 6/UIUX";
 import Frontend from "./Class 6/Frontend";
 import Backend from "./Class 6/Backend";
+import Dashboard from "./Class 6/Dashboard";
+import Navbar from "./Class 7/Navbar";
+import NotFound from "./Class 7/NotFound";
+import StudentDetail from "./Class 7/StudentDetail";
 
 function App(){
   const s={
@@ -30,11 +34,11 @@ function App(){
     [
       {
         path:'/',
-        element: <Routing/>
+        element: <><Navbar/> <Routing/></> 
       },
       {
         path:"/courses",
-        element:<Courses/>,
+        element:<><Navbar/> <Courses/></>,
         children:[
           {
             path:"uiux",
@@ -51,8 +55,20 @@ function App(){
         ]
       },
       {
+        path:'/dashboard',
+        element:<><Navbar/> <Dashboard/></>
+      },
+      {
         path:"/contactus",
-        element:<Contactus/>
+        element:<><Navbar/> <Contactus/></>
+      },
+      {
+        path:"*",
+        element:<NotFound/>
+      },
+      {path:'/student/:id',
+        element:<><Navbar/><StudentDetail/></>
+
       }
     ]
   )
@@ -89,6 +105,7 @@ function App(){
       {/* <Form1/> */}
       
       <RouterProvider router={router} />
+      {/* <Navbar/> */}
     </>
   )
 }
