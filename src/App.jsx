@@ -16,6 +16,15 @@ import Dashboard from "./Class 6/Dashboard";
 import Navbar from "./Class 7/Navbar";
 import NotFound from "./Class 7/NotFound";
 import StudentDetail from "./Class 7/StudentDetail";
+import Hooks from "./Class 8/Hooks";
+import DashBoard from "./Class 8/DashBoard";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import MainComponent from "./Class 8/MainComponent";
+import { createContext } from "react";
+import ThemeProvider from "./Class 8/context/ThemeProvider";
+
+// creation of context
+export const DataContext=createContext()
 
 function App(){
   const s={
@@ -73,6 +82,10 @@ function App(){
     ]
   )
 
+  let detail={
+    name:"Ayush",
+    city:"GZB"
+  }
 
   return(
     <>
@@ -104,8 +117,18 @@ function App(){
 
       {/* <Form1/> */}
       
-      <RouterProvider router={router} />
+      {/* <RouterProvider router={router} /> */}
       {/* <Navbar/> */}
+
+      {/* <Hooks/> */}
+      {/* <DashBoard/> */}
+
+      {/* Provide  */}
+      {/* <DataContext.Provider value={detail}>  
+      <MainComponent/>
+      </DataContext.Provider> */}
+
+      <ThemeProvider/>
     </>
   )
 }
