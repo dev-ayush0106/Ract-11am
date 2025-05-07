@@ -22,6 +22,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import MainComponent from "./Class 8/MainComponent";
 import { createContext } from "react";
 import ThemeProvider from "./Class 8/context/ThemeProvider";
+import Hooks1 from "./Class 9/Hooks1";
 
 // creation of context
 export const DataContext=createContext()
@@ -128,7 +129,9 @@ function App(){
       <MainComponent/>
       </DataContext.Provider> */}
 
-      <ThemeProvider/>
+      {/* <ThemeProvider/> */}
+
+      <Hooks1/>
     </>
   )
 }
