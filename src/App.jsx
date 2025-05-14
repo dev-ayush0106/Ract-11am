@@ -23,6 +23,7 @@ import MainComponent from "./Class 8/MainComponent";
 import { createContext } from "react";
 import ThemeProvider from "./Class 8/context/ThemeProvider";
 import Hooks1 from "./Class 9/Hooks1";
+import Doubt from "./Doubts/Doubt";
 
 // creation of context
 export const DataContext=createContext()
@@ -131,7 +132,9 @@ function App(){
 
       {/* <ThemeProvider/> */}
 
-      <Hooks1/>
+      {/* <Hooks1/> */}
+
+      <Doubt/>
     </>
   )
 }
