@@ -25,6 +25,7 @@ import ThemeProvider from "./Class 8/context/ThemeProvider";
 import Hooks1 from "./Class 9/Hooks1";
 import Doubt from "./Doubts/Doubt";
 import Intro from "./FramerMotion/Intro";
+import Home from "./Project1/Home";
 
 // creation of context
 export const DataContext=createContext()
@@ -137,7 +138,9 @@ function App(){
 
       {/* <Doubt/>*/}
 
-      <Intro/>
+      {/* <Intro/> */}
+
+      <Home/>
     </>
   )
 }
