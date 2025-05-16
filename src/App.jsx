@@ -24,6 +24,7 @@ import { createContext } from "react";
 import ThemeProvider from "./Class 8/context/ThemeProvider";
 import Hooks1 from "./Class 9/Hooks1";
 import Doubt from "./Doubts/Doubt";
+import Intro from "./FramerMotion/Intro";
 
 // creation of context
 export const DataContext=createContext()
@@ -134,7 +135,9 @@ function App(){
 
       {/* <Hooks1/> */}
 
-      <Doubt/>
+      {/* <Doubt/>*/}
+
+      <Intro/>
     </>
   )
 }
