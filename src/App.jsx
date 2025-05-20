@@ -20,17 +20,20 @@ import Hooks from "./Class 8/Hooks";
 import DashBoard from "./Class 8/DashBoard";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MainComponent from "./Class 8/MainComponent";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import ThemeProvider from "./Class 8/context/ThemeProvider";
 import Hooks1 from "./Class 9/Hooks1";
 import Doubt from "./Doubts/Doubt";
 import Intro from "./FramerMotion/Intro";
 import Home from "./Project1/Home";
+import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment, incrementByAmount, reset } from "./redux/Feature/CounterSlice";
 
 // creation of context
 export const DataContext=createContext()
 
 function App(){
+  let [amount,setAmount]=useState(0)
   const s={
     backgroundColor:"red"
   }
@@ -91,6 +94,25 @@ function App(){
     city:"GZB"
   }
 
+  function incCount(){
+    dispatch(increment());
+  }
+
+  function decCount(){
+    dispatch(decrement())
+  }
+
+  function resetCount(){
+    dispatch(reset())
+  }
+
+  function update(){
+    dispatch(incrementByAmount(amount))
+  }
+
+  const count=useSelector((state)=> state.counter.value)
+  const dispatch=useDispatch();
+
   return(
     <>
       {/* <Hello/>
@@ -140,7 +162,22 @@ function App(){
 
       {/* <Intro/> */}
 
-      <Home/>
+      {/* <Home/> */}
+
+      <button onClick={incCount}>+</button>
+      <br /><br />
+        <h1>Count:{count}</h1>
+        <br /><br />
+        <button onClick={decCount}>-</button>
+        <br />
+        <button onClick={resetCount}>Reset</button>
+        <br />
+        <input type="number"
+          value={amount}
+          placeholder="Enter Amount"
+          onChange={(e)=>{setAmount(e.target.value)}}
+        />
+        <button onClick={update}>Update</button>
     </>
   )
 }

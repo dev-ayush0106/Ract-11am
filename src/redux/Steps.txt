@@ -1,0 +1,7 @@
+make a store 
+wrapp the app in a store
+counterSlice create (features)
+
+store : counter:counterSlice.reducer
+
+app : counter value access
