@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 import { Hello, Hello1, Hello2 } from "./App1";
 import Card from "./Card";
 import State from "./Class 2/State";
@@ -17,7 +17,7 @@ import Navbar from "./Class 7/Navbar";
 import NotFound from "./Class 7/NotFound";
 import StudentDetail from "./Class 7/StudentDetail";
 import Hooks from "./Class 8/Hooks";
-import DashBoard from "./Class 8/DashBoard";
+// import Dashboard from "./Redux1/components/Dashboard";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MainComponent from "./Class 8/MainComponent";
 import { createContext, useState } from "react";
@@ -28,90 +28,100 @@ import Intro from "./FramerMotion/Intro";
 import Home from "./Project1/Home";
 import { useSelector, useDispatch } from "react-redux";
 import { decrement, increment, incrementByAmount, reset } from "./redux/Feature/CounterSlice";
+import Dashboard1 from "./Redux1/components/Dashboard";
+import Cart from "./Redux1/components/Cart";
+import RootLayout from "./Redux1/components/RootLayout";
 
 // creation of context
 export const DataContext=createContext()
 
 function App(){
-  let [amount,setAmount]=useState(0)
-  const s={
-    backgroundColor:"red"
-  }
-  let age=20; // variable
-  let option=["Hitech","Durable","Money Saving"]
+  const router=createBrowserRouter(createRoutesFromElements(
+    <Route path='/' element={<RootLayout/>}>
+      <Route index element={<Dashboard1/>}></Route>
+      <Route path='/cart' element={<Cart/>}></Route>
+    </Route>
+  ))
+  // let [amount,setAmount]=useState(0)
+  // const s={
+  //   backgroundColor:"red"
+  // }
+  // let age=20; // variable
+  // let option=["Hitech","Durable","Money Saving"]
 
-  let option2={
-    a:"Super",
-    b:"Fantastic",
-    c:"Hitech"
-  }
+  // let option2={
+  //   a:"Super",
+  //   b:"Fantastic",
+  //   c:"Hitech"
+  // }
 
-  let router=createBrowserRouter(
-    [
-      {
-        path:'/',
-        element: <><Navbar/> <Routing/></> 
-      },
-      {
-        path:"/courses",
-        element:<><Navbar/> <Courses/></>,
-        children:[
-          {
-            path:"uiux",
-            element:<UIUX/>
-          },
-          {
-            path:"frontend",
-            element:<Frontend/>
-          },
-          {
-            path:"backend",
-            element:<Backend/>
-          }
-        ]
-      },
-      {
-        path:'/dashboard',
-        element:<><Navbar/> <Dashboard/></>
-      },
-      {
-        path:"/contactus",
-        element:<><Navbar/> <Contactus/></>
-      },
-      {
-        path:"*",
-        element:<NotFound/>
-      },
-      {path:'/student/:id',
-        element:<><Navbar/><StudentDetail/></>
 
-      }
-    ]
-  )
+  // let router=createBrowserRouter(
+  //   [
+  //     {
+  //       path:'/',
+  //       element: <><Navbar/> <Routing/></> 
+  //     },
+  //     {
+  //       path:"/courses",
+  //       element:<><Navbar/> <Courses/></>,
+  //       children:[
+  //         {
+  //           path:"uiux",
+  //           element:<UIUX/>
+  //         },
+  //         {
+  //           path:"frontend",
+  //           element:<Frontend/>
+  //         },
+  //         {
+  //           path:"backend",
+  //           element:<Backend/>
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       path:'/dashboard',
+  //       element:<><Navbar/> <Dashboard/></>
+  //     },
+  //     {
+  //       path:"/contactus",
+  //       element:<><Navbar/> <Contactus/></>
+  //     },
+  //     {
+  //       path:"*",
+  //       element:<NotFound/>
+  //     },
+  //     {path:'/student/:id',
+  //       element:<><Navbar/><StudentDetail/></>
 
-  let detail={
-    name:"Ayush",
-    city:"GZB"
-  }
+  //     }
+  //   ]
+  // )
 
-  function incCount(){
-    dispatch(increment());
-  }
+  // let detail={
+  //   name:"Ayush",
+  //   city:"GZB"
+  // }
 
-  function decCount(){
-    dispatch(decrement())
-  }
+  // function incCount(){
+  //   dispatch(increment());
+  // }
 
-  function resetCount(){
-    dispatch(reset())
-  }
+  // function decCount(){
+  //   dispatch(decrement())
+  // }
 
-  function update(){
-    dispatch(incrementByAmount(amount))
-  }
+  // function resetCount(){
+  //   dispatch(reset())
+  // }
 
-  const count=useSelector((state)=> state.counter.value)
-  const dispatch=useDispatch();
+  // function update(){
+  //   dispatch(incrementByAmount(amount))
+  // }
+
+  // const count=useSelector((state)=> state.counter.value)
+  // const dispatch=useDispatch();
 
   return(
     <>
@@ -164,7 +174,7 @@ function App(){
 
       {/* <Home/> */}
 
-      <button onClick={incCount}>+</button>
+      {/* <button onClick={incCount}>+</button>
       <br /><br />
         <h1>Count:{count}</h1>
         <br /><br />
@@ -177,7 +187,9 @@ function App(){
           placeholder="Enter Amount"
           onChange={(e)=>{setAmount(e.target.value)}}
         />
-        <button onClick={update}>Update</button>
+        <button onClick={update}>Update</button> */}
+
+       <RouterProvider router={router}/>
     </>
   )
 }
