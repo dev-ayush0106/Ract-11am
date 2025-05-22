@@ -6,8 +6,11 @@ import { add } from '../Store/cartSlice';
 
 const Product = () => {
 
+    // useDispatch : To dispatch any action to slice
+    // useSelector : To access the data
+
     let [products, setGetProducts] = useState([]);
-    const dispatch=useDispatch();
+    const dispatch=useDispatch(); // function from which i can dispatch any product
 
     function addToCart(product){
         dispatch(add(product))
